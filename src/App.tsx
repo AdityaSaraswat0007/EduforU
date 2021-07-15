@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import LoginPage from "./pages/Login.Page";
+import SignUpPage from "./pages/SignUp.Page";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import DashboardPage from "./pages/Dashboard.Page";
+import RecordingPage from "./pages/Recording.Page";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/">
+          <Redirect to="/Login"></Redirect>
+        </Route>
+        <Route path="/Login">
+          <LoginPage></LoginPage>
+        </Route>
+        <Route path="/SignUp">
+          <SignUpPage></SignUpPage>
+        </Route>
+        <Route path="/DashBard">
+          <DashboardPage></DashboardPage>
+        </Route>
+        <Route path="/Recording">
+          <RecordingPage></RecordingPage>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
