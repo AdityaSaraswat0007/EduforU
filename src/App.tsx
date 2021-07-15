@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Redirect to="/Login"></Redirect>
         </Route>
         <Route path="/Login">
